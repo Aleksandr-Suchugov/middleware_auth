@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('group_id')->constrained();
+            $table->index('group_id', 'student_group_idx');
+            $table->string('surname');
+            $table->string('name');
             $table->timestamps();
         });
     }
